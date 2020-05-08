@@ -16,7 +16,13 @@ app.post("/", (req, res) => {
     const email = req.body.email;
     // res.send(req.body.lastName)
     console.log("POST");
+    console.log(firstName, lastName, email);
+    
     
 })
 
 app.listen(3000, () => console.log("Server is started."));
+
+// f1c409cb8daa8b5c154f19facfe4c56b-us18
+
+// List ID 4e4ffa9c39
