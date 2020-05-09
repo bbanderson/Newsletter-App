@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
 
+const CONFIG = config;
+
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
@@ -33,10 +35,10 @@ app.post("/", (req, res) => {
     }
 
     const jsonData = JSON.stringify(data)
-    const url = "https://us18.api.mailchimp.com/3.0/lists/4e4ffa9c39"
+    const url = `https://${CONFIG.SERVER_CODE}.api.mailchimp.com/3.0/lists/${CONFIG.LIST_ID}`
     const options = {
         method: "POST",
-        auth: "bbanderson:f1c409cb8daa8b5c154f19facfe4c56b-us18"
+        auth: `bbanderson:${CONFIG.API_KEY}`
     }
     const request = https.request(url, options, function(response) {
         response.on("data", data => {
